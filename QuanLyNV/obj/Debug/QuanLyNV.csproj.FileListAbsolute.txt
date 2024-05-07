@@ -1,0 +1,10 @@
+C:\Users\USER\Desktop\sql\QuanLyNV\QuanLyNV\bin\Debug\QuanLyNV.exe.config
+C:\Users\USER\Desktop\sql\QuanLyNV\QuanLyNV\bin\Debug\QuanLyNV.exe
+C:\Users\USER\Desktop\sql\QuanLyNV\QuanLyNV\bin\Debug\QuanLyNV.pdb
+C:\Users\USER\Desktop\sql\QuanLyNV\QuanLyNV\obj\Debug\QuanLyNV.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\sql\QuanLyNV\QuanLyNV\obj\Debug\QuanLyNV.Form1.resources
+C:\Users\USER\Desktop\sql\QuanLyNV\QuanLyNV\obj\Debug\QuanLyNV.Properties.Resources.resources
+C:\Users\USER\Desktop\sql\QuanLyNV\QuanLyNV\obj\Debug\QuanLyNV.csproj.GenerateResource.cache
+C:\Users\USER\Desktop\sql\QuanLyNV\QuanLyNV\obj\Debug\QuanLyNV.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\sql\QuanLyNV\QuanLyNV\obj\Debug\QuanLyNV.exe
+C:\Users\USER\Desktop\sql\QuanLyNV\QuanLyNV\obj\Debug\QuanLyNV.pdb
