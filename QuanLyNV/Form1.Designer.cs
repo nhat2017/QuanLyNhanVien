@@ -31,11 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnsua = new System.Windows.Forms.Button();
             this.DELETE = new System.Windows.Forms.Button();
             this.cboMa = new System.Windows.Forms.ComboBox();
+            this.phongBanBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quan_li_hoc_sinhDataSet2 = new QuanLyNV.Quan_li_hoc_sinhDataSet2();
             this.cbogt = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.txtque = new System.Windows.Forms.TextBox();
@@ -62,17 +65,24 @@
             this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quan_li_hoc_sinhDataSet = new QuanLyNV.Quan_li_hoc_sinhDataSet();
             this.nhanVienTableAdapter = new QuanLyNV.Quan_li_hoc_sinhDataSetTableAdapters.NhanVienTableAdapter();
-            this.btnshowthem = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.quanlihocsinhDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nhanVienTableAdapter1 = new QuanLyNV.Quan_li_hoc_sinhDataSet1TableAdapters.NhanVienTableAdapter();
+            this.nhanVienBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.phong_BanTableAdapter = new QuanLyNV.Quan_li_hoc_sinhDataSet2TableAdapters.Phong_BanTableAdapter();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.phongBanBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quan_li_hoc_sinhDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quan_li_hoc_sinhDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quan_li_hoc_sinhDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanlihocsinhDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -115,7 +125,7 @@
             // 
             // btnsua
             // 
-            this.btnsua.Location = new System.Drawing.Point(485, 433);
+            this.btnsua.Location = new System.Drawing.Point(495, 433);
             this.btnsua.Name = "btnsua";
             this.btnsua.Size = new System.Drawing.Size(186, 38);
             this.btnsua.TabIndex = 22;
@@ -136,19 +146,26 @@
             // cboMa
             // 
             this.cboMa.AllowDrop = true;
+            this.cboMa.DataSource = this.phongBanBindingSource;
+            this.cboMa.DisplayMember = "MaPhongBan";
             this.cboMa.FormattingEnabled = true;
-            this.cboMa.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6"});
             this.cboMa.Location = new System.Drawing.Point(223, 367);
             this.cboMa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboMa.Name = "cboMa";
             this.cboMa.Size = new System.Drawing.Size(121, 37);
             this.cboMa.TabIndex = 19;
+            this.cboMa.ValueMember = "MaPhongBan";
+            this.cboMa.SelectedIndexChanged += new System.EventHandler(this.cboMa_SelectedIndexChanged);
+            // 
+            // phongBanBindingSource
+            // 
+            this.phongBanBindingSource.DataMember = "Phong_Ban";
+            this.phongBanBindingSource.DataSource = this.quan_li_hoc_sinhDataSet2;
+            // 
+            // quan_li_hoc_sinhDataSet2
+            // 
+            this.quan_li_hoc_sinhDataSet2.DataSetName = "Quan_li_hoc_sinhDataSet2";
+            this.quan_li_hoc_sinhDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cbogt
             // 
@@ -306,7 +323,7 @@
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(1586, 444);
+            this.dataGridView1.Size = new System.Drawing.Size(1414, 444);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
@@ -390,30 +407,6 @@
             // 
             this.nhanVienTableAdapter.ClearBeforeFill = true;
             // 
-            // btnshowthem
-            // 
-            this.btnshowthem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnshowthem.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.btnshowthem.Location = new System.Drawing.Point(69, 59);
-            this.btnshowthem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnshowthem.Name = "btnshowthem";
-            this.btnshowthem.Size = new System.Drawing.Size(250, 70);
-            this.btnshowthem.TabIndex = 12;
-            this.btnshowthem.Text = "Thêm xóa sửa";
-            this.btnshowthem.UseVisualStyleBackColor = false;
-            this.btnshowthem.Click += new System.EventHandler(this.btnshowthem_Click);
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.button1.Location = new System.Drawing.Point(69, 177);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(250, 64);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Tìm Kiếm";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // quanlihocsinhDataSetBindingSource
             // 
             this.quanlihocsinhDataSetBindingSource.DataSource = this.quan_li_hoc_sinhDataSet;
@@ -423,30 +416,71 @@
             // 
             this.nhanVienTableAdapter1.ClearBeforeFill = true;
             // 
+            // nhanVienBindingSource2
+            // 
+            this.nhanVienBindingSource2.DataMember = "NhanVien";
+            this.nhanVienBindingSource2.DataSource = this.quanlihocsinhDataSetBindingSource;
+            // 
+            // phong_BanTableAdapter
+            // 
+            this.phong_BanTableAdapter.ClearBeforeFill = true;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox.BackgroundImage")));
+            this.pictureBox.Location = new System.Drawing.Point(3, -11);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(1658, 1188);
+            this.pictureBox.TabIndex = 13;
+            this.pictureBox.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(56, 105);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(356, 47);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Chỉnh bảng phòng ban";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::QuanLyNV.Properties.Resources.download__2_;
             this.ClientSize = new System.Drawing.Size(1660, 1189);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnshowthem);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.pictureBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "BẢNG QUẢN LÍ NHÂN VIÊN";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load_1);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.phongBanBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quan_li_hoc_sinhDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quan_li_hoc_sinhDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quan_li_hoc_sinhDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanlihocsinhDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -477,8 +511,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn luongDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn queQuanDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maPhongBanDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnshowthem;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.BindingSource quanlihocsinhDataSetBindingSource;
         private Quan_li_hoc_sinhDataSet1 quan_li_hoc_sinhDataSet1;
@@ -488,6 +520,13 @@
         private System.Windows.Forms.ComboBox cbogt;
         private System.Windows.Forms.Button DELETE;
         private System.Windows.Forms.Button btnsua;
+        private System.Windows.Forms.BindingSource nhanVienBindingSource2;
+        private Quan_li_hoc_sinhDataSet2 quan_li_hoc_sinhDataSet2;
+        private System.Windows.Forms.BindingSource phongBanBindingSource;
+        private Quan_li_hoc_sinhDataSet2TableAdapters.Phong_BanTableAdapter phong_BanTableAdapter;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.Button button1;
     }
 }
 

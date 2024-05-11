@@ -24,8 +24,10 @@ namespace QuanLyNV
         public Form1()
         {
             InitializeComponent();
-            this.groupBox1.Visible = false;
 
+            pictureBox.Dock = DockStyle.Fill; // Stretch to fill the form
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            //this.BackgroundImageLayout = ImageLayout.Zoom;
         }
 
 
@@ -94,7 +96,7 @@ namespace QuanLyNV
                                         sqlcmd.Parameters.AddWithValue("@QueQuan", txtque.Text);
                                         if (cboMa.Text == "")
                                         {
-                                            MessageBox.Show(" chonj  ");
+                                            MessageBox.Show(" chọn  quên quán  ");
                                         }
                                         else
                                         {
@@ -133,13 +135,11 @@ namespace QuanLyNV
         }
 
 
-        private void btnshowthem_Click(object sender, EventArgs e)
-        {
-            this.groupBox1.Visible = true;
-        }
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'quan_li_hoc_sinhDataSet2.Phong_Ban' table. You can move, or remove it, as needed.
+            this.phong_BanTableAdapter.Fill(this.quan_li_hoc_sinhDataSet2.Phong_Ban);
             // TODO: This line of code loads data into the 'quan_li_hoc_sinhDataSet1.NhanVien' table. You can move, or remove it, as needed.
             this.nhanVienTableAdapter1.Fill(this.quan_li_hoc_sinhDataSet1.NhanVien);
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -178,8 +178,8 @@ namespace QuanLyNV
                     SqlCommand sqlcmd = new SqlCommand(sql, conn);
                     sqlcmd.Parameters.AddWithValue("@MaNV", manvToDelete);
 
-                    int rowsAffected = sqlcmd.ExecuteNonQuery();
 
+                    int rowsAffected = sqlcmd.ExecuteNonQuery();
 
 
                     if (rowsAffected > 0)
@@ -308,6 +308,32 @@ namespace QuanLyNV
                 }
 
             }
+        }
+
+        private void cboMa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 f = new Form2();
+            f.Show();
         }
     }
 }

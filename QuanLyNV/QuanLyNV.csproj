@@ -52,6 +52,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quan_li_hoc_sinhDataSet.Designer.cs">
@@ -64,8 +70,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Quan_li_hoc_sinhDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Quan_li_hoc_sinhDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Quan_li_hoc_sinhDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Quan_li_hoc_sinhDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Quan_li_hoc_sinhDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Quan_li_hoc_sinhDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Quan_li_hoc_sinhDataSet4.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,6 +137,39 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Quan_li_hoc_sinhDataSet2.xsc">
+      <DependentUpon>Quan_li_hoc_sinhDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Quan_li_hoc_sinhDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Quan_li_hoc_sinhDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Quan_li_hoc_sinhDataSet2.xss">
+      <DependentUpon>Quan_li_hoc_sinhDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Quan_li_hoc_sinhDataSet3.xsc">
+      <DependentUpon>Quan_li_hoc_sinhDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="Quan_li_hoc_sinhDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Quan_li_hoc_sinhDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Quan_li_hoc_sinhDataSet3.xss">
+      <DependentUpon>Quan_li_hoc_sinhDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="Quan_li_hoc_sinhDataSet4.xsc">
+      <DependentUpon>Quan_li_hoc_sinhDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="Quan_li_hoc_sinhDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Quan_li_hoc_sinhDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Quan_li_hoc_sinhDataSet4.xss">
+      <DependentUpon>Quan_li_hoc_sinhDataSet4.xsd</DependentUpon>
+    </None>
     <None Include="Resources\download %282%29.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +180,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\download.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %283%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,3 +8,4 @@ C:\Users\USER\Desktop\sql\QuanLyNV\QuanLyNV\obj\Debug\QuanLyNV.csproj.GenerateRe
 C:\Users\USER\Desktop\sql\QuanLyNV\QuanLyNV\obj\Debug\QuanLyNV.csproj.CoreCompileInputs.cache
 C:\Users\USER\Desktop\sql\QuanLyNV\QuanLyNV\obj\Debug\QuanLyNV.exe
 C:\Users\USER\Desktop\sql\QuanLyNV\QuanLyNV\obj\Debug\QuanLyNV.pdb
+C:\Users\USER\Desktop\sql\QuanLyNV\QuanLyNV\obj\Debug\QuanLyNV.Form2.resources
