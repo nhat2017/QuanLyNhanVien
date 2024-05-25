@@ -34,8 +34,13 @@ namespace QuanLyNV
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.phong_BanTableAdapter1.Fill(this.quan_li_hoc_sinhDataSet5.Phong_Ban);
 
+            dataGridView2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             this.nhanVienTableAdapter.Fill(this.quan_li_hoc_sinhDataSet.NhanVien);
+            this.groupBox2.Visible = false;
+
+
         }
 
 
@@ -138,8 +143,10 @@ namespace QuanLyNV
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'quan_li_hoc_sinhDataSet5.Phong_Ban' table. You can move, or remove it, as needed.
+            this.phong_BanTableAdapter1.Fill(this.quan_li_hoc_sinhDataSet5.Phong_Ban);
             // TODO: This line of code loads data into the 'quan_li_hoc_sinhDataSet2.Phong_Ban' table. You can move, or remove it, as needed.
-            this.phong_BanTableAdapter.Fill(this.quan_li_hoc_sinhDataSet2.Phong_Ban);
+            // this.phong_BanTableAdapter.Fill(this.quan_li_hoc_sinhDataSet2.Phong_Ban);
             // TODO: This line of code loads data into the 'quan_li_hoc_sinhDataSet1.NhanVien' table. You can move, or remove it, as needed.
             this.nhanVienTableAdapter1.Fill(this.quan_li_hoc_sinhDataSet1.NhanVien);
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -330,10 +337,104 @@ namespace QuanLyNV
 
         }
 
+
+
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void groupBox2_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dataGridView2.Rows[e.RowIndex];
+                txtmpb.Text = row.Cells[0].Value.ToString();
+                txttpb.Text = row.Cells[1].Value.ToString();
+            }
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(ConString);
+            con.Open();
+            int i = this.dataGridView2.CurrentRow.Index;
+            string mapbToDelete = this.dataGridView2.Rows[i].Cells[0].Value.ToString();
+
+            string sqlpb = "DELETE FROM Phong_Ban WHERE MaPhongBan = @Mapb";
+            string sqlnv = "delete from NhanVien where MaPhongBan = @Mapb";
+
+            SqlCommand sqlcmd = new SqlCommand(sqlpb, con);
+            SqlCommand sql = new SqlCommand(sqlnv, con);
+            if (mapbToDelete == null)
+            { MessageBox.Show("ĐIỀN Mã Phòng Ban "); }
+
+            else
+            {
+                sqlcmd.Parameters.AddWithValue("@Mapb", mapbToDelete);
+
+                sql.Parameters.AddWithValue("@Mapb", mapbToDelete);
+                sqlcmd.ExecuteNonQuery();
+                sql.ExecuteNonQuery();
+                this.phong_BanTableAdapter1.Fill(this.quan_li_hoc_sinhDataSet5.Phong_Ban);
+                this.nhanVienTableAdapter1.Fill(this.quan_li_hoc_sinhDataSet1.NhanVien);
+
+            }
+
+
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(ConString);
+            con.Open();
+            string sql = "Insert into Phong_Ban(MaPhongBan,TenPhongBan) values(@mapb ,@tenpb)";
+            SqlCommand sqlcmd = new SqlCommand(sql, con);
+            sqlcmd.Parameters.AddWithValue("@mapb", txtmpb.Text);
+            sqlcmd.Parameters.AddWithValue("@tenpb", txttpb.Text);
+            sqlcmd.ExecuteNonQuery();
+            this.phong_BanTableAdapter1.Fill(this.quan_li_hoc_sinhDataSet5.Phong_Ban);
+        }
+        int count = 0;
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 f = new Form2();
-            f.Show();
+            count++;
+            if (count % 2 == 0) {
+                this.groupBox2.Visible = true;
+            }
+            else
+            {
+                { this.groupBox2.Visible = false; }
+            }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(ConString);
+            con.Open();
+
+            string idToUpdate = txtmpb.Text;
+            int i = this.dataGridView2.CurrentRow.Index;
+            SqlCommand cmd = new SqlCommand("UPDATE Phong_Ban SET  TenPhongBan= @tpb  where MaPhongBAN = @mpb", con);
+            string idtoupdate = this.dataGridView1.Rows[i].Cells[0].Value.ToString();
+
+            cmd.Parameters.AddWithValue("@mpb", idToUpdate);
+            cmd.Parameters.AddWithValue("@tpb", txttpb.Text);
+
+            cmd.ExecuteNonQuery();
+            this.phong_BanTableAdapter1.Fill(this.quan_li_hoc_sinhDataSet5.Phong_Ban);
+            con.Close();
+        }
+    
+        
     }
 }
